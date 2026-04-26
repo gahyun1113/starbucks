@@ -15,12 +15,11 @@ export async function POST(request: Request) {
     }
 
     const aiResult = await analyzeImage(image);
-    
     return NextResponse.json(aiResult);
-  } catch (error) {
+  } catch (error: any) {
     console.error('API Error:', error);
     return NextResponse.json(
-      { error: 'Failed to analyze image' },
+      { error: error.message || 'Failed to analyze image' },
       { status: 500 }
     );
   }

@@ -112,11 +112,11 @@ export default function RegistrationModal({ isOpen, onClose, postToEdit }: Props
         body: JSON.stringify({ image: compressedImage })
       });
 
-      if (!response.ok) {
-        throw new Error('AI 분석에 실패했습니다.');
-      }
-
       const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'AI 분석에 실패했습니다.');
+      }
       
       // 4. Fill the form with AI data
       setTitle(data.title || "");
@@ -125,9 +125,9 @@ export default function RegistrationModal({ isOpen, onClose, postToEdit }: Props
         setCautions(data.cautions);
       }
       
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      showAlert("AI 사진 인식 중 오류가 발생했습니다. 다시 시도해주세요.");
+      showAlert(`AI 오류: ${error.message}`);
     } finally {
       setIsAiProcessing(false);
     }
