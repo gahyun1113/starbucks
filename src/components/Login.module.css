@@ -1,0 +1,109 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: var(--background);
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  padding: 3rem 2rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.inputGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.input {
+  width: 100%;
+  padding: 1.25rem 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.2em; /* Reduced from 0.5em to fix overlap */
+  border-radius: var(--radius-md);
+  border: 1px solid var(--surface-border);
+  background-color: #f8fafc;
+  color: var(--foreground);
+  transition: all 0.2s ease;
+  outline: none;
+  font-family: monospace;
+}
+
+.input:focus {
+  border-color: var(--primary);
+  background-color: white;
+  box-shadow: 0 0 0 3px var(--accent);
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.button:hover {
+  background-color: var(--primary-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.errorText {
+  color: #ef4444;
+  font-size: 0.875rem;
+  text-align: center;
+  min-height: 20px;
+  font-weight: 500;
+}
