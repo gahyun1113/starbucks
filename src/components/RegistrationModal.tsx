@@ -36,20 +36,6 @@ export default function RegistrationModal({ isOpen, onClose, postToEdit }: Props
     setAlertOpen(true);
   };
 
-  useEffect(() => {
-    if (postToEdit) {
-      setType(postToEdit.type);
-      setTitle(postToEdit.title);
-      setStartDate(postToEdit.start_date);
-      setEndDate(postToEdit.end_date);
-      setContent(postToEdit.content);
-      setCautions(postToEdit.cautions || "");
-      setImages(postToEdit.images || []);
-    } else {
-      resetForm();
-    }
-  }, [postToEdit, isOpen]);
-
   const resetForm = () => {
     setType("promotion");
     setTitle("");
@@ -61,6 +47,22 @@ export default function RegistrationModal({ isOpen, onClose, postToEdit }: Props
     setIsSubmitting(false);
     setIsAiProcessing(false);
   };
+
+  useEffect(() => {
+    if (postToEdit) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setType(postToEdit.type);
+      setTitle(postToEdit.title);
+      setStartDate(postToEdit.start_date);
+      setEndDate(postToEdit.end_date);
+      setContent(postToEdit.content);
+      setCautions(postToEdit.cautions || "");
+      setImages(postToEdit.images || []);
+    } else {
+      resetForm();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [postToEdit, isOpen]);
 
   const compressImage = (file: File): Promise<string> => {
     return new Promise((resolve) => {

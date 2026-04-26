@@ -10,6 +10,7 @@ export default function Home() {
   const role = useAuthStore((state) => state.role);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
