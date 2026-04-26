@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { analyzeImage } from '@/lib/gemini';
 
+export const maxDuration = 60; // Prevent 10s timeout on Vercel Hobby plan
+
 export async function POST(request: Request) {
   try {
     const { image } = await request.json();
