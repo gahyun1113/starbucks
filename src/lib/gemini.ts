@@ -13,8 +13,8 @@ export async function analyzeImage(base64Image: string) {
     // Clean the base64 string to just get the data part
     const base64Data = base64Image.split(",")[1] || base64Image;
 
-    // Use a valid stable model: gemini-1.5-flash
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    // Use the latest model: gemini-2.0-flash
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     const prompt = `
       당신은 스타벅스 파트너를 위한 내부 애플리케이션 조수입니다.
